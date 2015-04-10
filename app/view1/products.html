@@ -1,0 +1,29 @@
+<span class="viewTitle">This is a list of all the tables.</span>
+<div class="tableView">
+    <table>
+        <tr>
+            <th>
+                Product Id
+            </th>
+            <th>
+                Product Title
+            </th>
+            <th>
+                Product Description
+            </th>
+            <th>
+                Edit Product
+            </th>
+        </tr>
+        <tr ng-repeat="product in products">
+            <td>{{product._id}}</td>
+            <td>{{product.title}}</td>
+            <td>{{product.description}}</td>
+            <td><a ng-href="product/{{product._id}}">Edit</a></td>
+        </tr>
+        
+    </table>
+</div>
+<div class="controlPanel">
+    <button class="centeredButton" ng-click="createProduct()">Create Product</button>
+</div>

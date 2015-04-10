@@ -1,0 +1,64 @@
+/* app css stylesheet */
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+  font-weight: bold;
+}
+
+.tableView {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: white;
+    text-align: left;
+}
+
+.mainArea {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+button.centeredButton {
+
+}
+
+.controlPanel {
+    padding-top: 20px;
+}
+
+body {
+   background-color: #b0e0e6;
+}
+
+.viewTitle {
+  font-weight: bold;
+  font-size: 150%;
+  display: block;
+  padding-bottom: 20px;
+}
+
+.inputArea {
+  padding-bottom: 20px;
+}
+
+.formArea {
+  margin: 0 auto;
+  width: 40%;
+  text-align: left;
+  position: relative;
+}
+
+.inputArea > input {
+   position: absolute;
+   right: 30px;
+}
