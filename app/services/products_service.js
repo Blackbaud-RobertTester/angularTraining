@@ -77,8 +77,7 @@ productsModule.factory('productService', ['$location', '$http', '$q', function (
       return productsPromise;
         
     }
-    
-    //See if this will work.
+
     service.deleteProduct = function(product) {
       
       var deferred = $q.defer();

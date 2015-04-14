@@ -11,9 +11,8 @@ mainModule.config(['$routeProvider', '$locationProvider', '$httpProvider', funct
   delete $httpProvider.defaults.headers.common["X-Requested-With"];
   $httpProvider.defaults.headers.common["Accept"] = "application/json";
   $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
-  
-  $routeProvider.otherwise({redirectTo: '/products'});
 
+  //We want to list out all the proudcts initially.  Configure Angular to do that when you first get to the landing page.
   
 }]);
 
