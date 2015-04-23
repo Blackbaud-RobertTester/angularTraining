@@ -36,9 +36,7 @@ module.controller('ProductCreateCtrl', ['$scope', 'productService', '$location',
 module.controller('ProductEditCtrl', ['$scope', 'productService', '$location', 'product',  function($scope, productService, $location, product) {
 
   $scope.product = product.data;
-
   $scope.updateProduct = function (product) {
-    
     var productsPromise = productService.updateProduct(product);
     productsPromise.then(function(payload) {
       $location.path('/products');
