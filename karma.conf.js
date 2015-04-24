@@ -12,7 +12,9 @@ module.exports = function(config){
       'app/view2/product.js',
       'app/view1/view1_test.js',
       'app/view2/view2_test.js',
-      'app/example_tests.js'
+      'app/example_tests.js',
+      'app/jasmine/example.js',
+      'app/jasmine/test_practice.js'
     ],
 
     autoWatch : true,
