@@ -1,16 +1,6 @@
 /*
 Matchers
 */
-describe("The 'toBe' matcher compares with ===", function() {
-
-  it("and has a positive case", function() {
-    expect(true).toBe(true);
-  });
-
-  it("and can have a negative case", function() {
-    expect(false).not.toBe(true);
-  });
-});
 
 describe("Included matchers:", function() {
 
@@ -50,7 +40,7 @@ describe("Included matchers:", function() {
     expect(message).not.toMatch(/quux/);
   });
 
-  it("The 'toBeDefined' matcher compares against `undefined`", function() {
+  it("The 'toBeri' matcher compares against `undefined`", function() {
     var a = {
       foo: "foo"
     };
@@ -78,7 +68,8 @@ describe("Included matchers:", function() {
   });
 
   it("The 'toBeTruthy' matcher is for boolean casting testing", function() {
-    var a, foo = "foo";
+    var a = 0;
+    var foo = "foo";
 
     expect(foo).toBeTruthy();
     expect(a).not.toBeTruthy();
@@ -112,14 +103,6 @@ describe("Included matchers:", function() {
 
     expect(pi).toBeGreaterThan(e);
     expect(e).not.toBeGreaterThan(pi);
-  });
-
-  it("The 'toBeCloseTo' matcher is for precision math comparison", function() {
-    var pi = 3.1415926,
-      e = 2.78;
-
-    expect(pi).not.toBeCloseTo(e, 2);
-    expect(pi).toBeCloseTo(e, 0);
   });
 
   it("The 'toThrow' matcher is for testing if a function throws an exception", function() {
@@ -210,11 +193,6 @@ describe("A spec", function() {
 
   it("is just a function, so it can contain any code", function() {
     expect(foo).toEqual(1);
-  });
-
-  it("can have more than one expectation", function() {
-    expect(foo).toEqual(1);
-    expect(true).toEqual(true);
   });
 
   describe("nested inside a second describe", function() {
@@ -378,31 +356,6 @@ describe("A spy, when configured to throw an error", function() {
     expect(function() {
       foo.setBar(123)
     }).toThrowError("quux");
-  });
-});
-
-describe("A spy", function() {
-  var foo, bar = null;
-
-  beforeEach(function() {
-    foo = {
-      setBar: function(value) {
-        bar = value;
-      }
-    };
-
-    spyOn(foo, 'setBar').and.callThrough();
-  });
-
-  it("can call through and then stub in the same spec", function() {
-    foo.setBar(123);
-    expect(bar).toEqual(123);
-
-    foo.setBar.and.stub();
-    bar = null;
-
-    foo.setBar(123);
-    expect(bar).toBe(null);
   });
 });
 

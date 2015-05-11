@@ -1,33 +1,40 @@
 'use strict';
 
 describe('myApp.view1 module', function() {
-  var scope, controller, location;
-  var mockProducts = {data: ['prod1','prod2','prod3']};
   
-  beforeEach(
-    angular.mock.module('myApp.products')
-  );
-
-  beforeEach(inject(function($rootScope, $controller, $location) {
-    scope = $rootScope.$new();
-    controller = $controller;
-    location = $location;
+  beforeEach(angular.mock.module('myApp.products'));
+  
+  var $scope;
+  var $controller;
+  var $location;
+  var products = {data: [{_id: "", title:"", description:""}]};
+  
+  beforeEach(inject(function(_$rootScope_, _$controller_, _$location_){
+    $scope = _$rootScope_.$new();
+    $controller = _$controller_;
+    $location = _$location_;
   }));
-
-  it('should be defined', function() {
-    //spec body
-    var view1Ctrl = controller('ProductsCtrl',{'$scope': scope, 'products': mockProducts, '$location': location});
-    expect(view1Ctrl).toBeDefined();
-  });
-
-  it('should change locations', function() {
-    var view1Ctrl = controller('ProductsCtrl',{'$scope': scope, 'products': mockProducts, '$location': location});
-    scope.createProduct();
-    expect(location.path()).toBe('/product');
-  });
   
-  it('should set products in scope', function() {
-    var view1Ctrl = controller('ProductsCtrl',{'$scope': scope, 'products': mockProducts, '$location': location});
-    expect(scope.products).toBe(mockProducts.data);
+  describe('view1 tests', function() {
+   
+    var controller;
+
+    beforeEach(function() {
+      controller = $controller('ProductsCtrl', { '$scope': $scope, 'products': products, '$location': $location});
+    });
+   
+    it('should be defined', function() {
+      expect(controller).toBeDefined();
+    });
+  
+    it('should change locations', function() {
+      $scope.createProduct();
+      expect($location.path()).toBe('/product');
+      
+    });
+    
+    it('should set products in scope', function() {
+      expect($scope.products).toEqual(products.data)
+    });
   });
 });
